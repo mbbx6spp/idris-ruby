@@ -1,15 +1,14 @@
-Name:           idris-php
+Name:           idris-ruby
 Version:        0.0.0.1
 License:        BSD3
 License-file:   CRAPL-LICENSE.txt
-Author:         Edwin Brady
-Maintainer:	Edwin Brady <ecb10@st-andrews.ac.uk>
+Author:         Michael R. Bernstein
+Maintainer:	Michael R. Bernstein <michaelrbernstein@gmail.com>
 Build-Type:	Simple
 Cabal-Version:  >= 1.8
 Extra-source-files:
-		phprts/*.php
 
-Executable idris-php
+Executable idris-ruby
   Main-is:        Main.hs
   hs-source-dirs: src
 
@@ -22,7 +21,7 @@ Executable idris-php
                 , mtl
                 , transformers
 
-  other-modules: IRTS.CodegenPHP
+  other-modules: IRTS.CodegenRuby
 
   if os(linux)
      cpp-options:   -DLINUX

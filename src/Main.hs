@@ -6,17 +6,17 @@ import Idris.ElabDecls
 import Idris.REPL
 
 import IRTS.Compiler
-import IRTS.CodegenPHP
+import IRTS.CodegenRuby
 
 import System.Environment
 import System.Exit
 
-import Paths_idris_php
+import Paths_idris_ruby
 
 data Opts = Opts { inputs :: [FilePath],
                    output :: FilePath }
 
-showUsage = do putStrLn "Usage: idris-php <ibc-files> [-o <output-file>]"
+showUsage = do putStrLn "Usage: idris-ruby <ibc-files> [-o <output-file>]"
                exitWith ExitSuccess
 
 getOpts :: IO Opts
@@ -31,8 +31,8 @@ c_main :: Opts -> Idris ()
 c_main opts = do elabPrims
                  loadInputs (inputs opts) Nothing
                  mainProg <- elabMain
-                 ir <- compile (Via "php") (output opts) (Just mainProg)
-                 runIO $ codegenPHP ir
+                 ir <- compile (Via "ruby") (output opts) (Just mainProg)
+                 runIO $ codegenRuby ir
 
 main :: IO ()
 main = do opts <- getOpts
