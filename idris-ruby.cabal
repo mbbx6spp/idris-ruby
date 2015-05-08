@@ -20,6 +20,7 @@ Executable idris-ruby
                 , haskeline >= 0.7
                 , mtl
                 , transformers
+                , pretty
 
   other-modules: IRTS.CodegenRuby
 

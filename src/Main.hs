@@ -21,7 +21,7 @@ showUsage = do putStrLn "Usage: idris-ruby <ibc-files> [-o <output-file>]"
 
 getOpts :: IO Opts
 getOpts = do xs <- getArgs
-             return $ process (Opts [] "a.php") xs
+             return $ process (Opts [] "a.rb") xs
   where
     process opts ("-o":o:xs) = process (opts { output = o }) xs
     process opts (x:xs) = process (opts { inputs = x:inputs opts }) xs
